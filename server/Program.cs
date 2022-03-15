@@ -7,7 +7,7 @@ using Service;
 var builder = WebApplication.CreateBuilder(
     new WebApplicationOptions() 
     {
-        WebRootPath = "content/wwwroot"
+        WebRootPath = "wwwroot"
     }
 );
 
