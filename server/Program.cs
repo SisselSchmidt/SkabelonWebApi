@@ -24,6 +24,11 @@ builder.Services.AddCors(options =>
     });
 });
 
+Console.WriteLine($"Application Name: {builder.Environment.ApplicationName}");
+Console.WriteLine($"Environment Name: {builder.Environment.EnvironmentName}");
+Console.WriteLine($"ContentRoot Path: {builder.Environment.ContentRootPath}");
+Console.WriteLine($"WebRootPath: {builder.Environment.WebRootPath}");
+
 // Tilføj DbContext factory som service.
 // Det gør at man kan få TodoContext ind via dependecy injection - fx 
 // i DataService (smart!)
