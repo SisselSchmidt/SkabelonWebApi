@@ -61,6 +61,17 @@ public class DataService
         );
     }
 
+    public string UpdateTask(int id, string text, bool done) {
+        Console.WriteLine("id er " + id);
+        TodoTask task = db.Tasks.Where(task => task.TodoTaskId == id).First();
+        task.Text = text;
+        task.Done = done;
+        db.SaveChanges();
+        return JsonSerializer.Serialize(
+            new { msg = "Task updated", task = task }
+        );
+    }
+
     public DbSet<User> GetUsers() {
         return db.Users;
     }

@@ -102,9 +102,13 @@ app.MapGet("/api/tasks/{id}", (DataService service, int id) =>
     return service.GetTaskById(id);
 });
 
-app.MapPost("/api/tasks/", (TaskData data, DataService service) =>
+app.MapPost("/api/tasks/", (PostTaskData data, DataService service) =>
 {
     return service.CreateTask(data.text, data.done, data.userId);
+});
+
+app.MapPut("/api/tasks/{id}", (int id, PutTaskData data, DataService service) => {
+    return service.UpdateTask(id, data.text, data.done);
 });
 
 app.MapGet("/api/users", (DataService service) =>
@@ -120,5 +124,7 @@ app.MapPost("/api/users/", (UserData data, DataService service) =>
 app.Run();
 
 // Records til input data (svarende til input JSON)
-record TaskData(string text, bool done, int userId);
+record PostTaskData(string text, bool done, int userId);
+
+record PutTaskData(string text, bool done);
 record UserData(string name);
