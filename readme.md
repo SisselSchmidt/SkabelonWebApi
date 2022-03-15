@@ -17,3 +17,13 @@ $ cd bin/Release/net6.0/publish
 $ ./TodoApi
 ```
 
+Explanation of the above commands:
+- First install the Entity Framework cli
+- Publish a release build of the project
+- Go to server folder
+- Create the database contents from migrations using the ef cli
+- Create a folder for the database (sqlite)
+- Copy database files to new folder
+- Go to program folder
+- Start the executable (TodoApi)
+
