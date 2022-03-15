@@ -4,7 +4,12 @@ using Microsoft.AspNetCore.Http.Json;
 using Data;
 using Service;
 
-var builder = WebApplication.CreateBuilder(args);
+var builder = WebApplication.CreateBuilder(
+    new WebApplicationOptions() 
+    {
+        WebRootPath = "content/wwwroot"
+    }
+);
 
 // Swagger-halløj der tilføjer nogle udviklingsværktøjer direkte i app'en.
 // Se mere her: https://aka.ms/aspnetcore/swashbuckle
