@@ -28,8 +28,6 @@ jobs:
           cd server
           dotnet tool restore
           dotnet ef database update
-        env:
-          ASPNETCORE_ENVIRONMENT: Development
 
       - name: Build with dotnet
         run: dotnet build --configuration Release
