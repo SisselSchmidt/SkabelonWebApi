@@ -32,12 +32,15 @@ jobs:
       - name: Build with dotnet
         run: | 
           dotnet build --configuration Release
-          mkdir ${{env.DOTNET_ROOT}}/myapp/bin
-          cd server
-          cp bin/database.db* ${{env.DOTNET_ROOT}}/myapp/bin
 
       - name: dotnet publish
         run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
+
+      - name: Copy database
+        run: |
+          mkdir ${{env.DOTNET_ROOT}}/myapp/bin
+          cd server
+          cp bin/database.db* ${{env.DOTNET_ROOT}}/myapp/bin
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
