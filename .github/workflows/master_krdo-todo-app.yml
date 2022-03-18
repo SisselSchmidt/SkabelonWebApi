@@ -30,7 +30,11 @@ jobs:
           dotnet ef database update
 
       - name: Build with dotnet
-        run: dotnet build --configuration Release
+        run: | 
+          dotnet build --configuration Release
+          mkdir ${{env.DOTNET_ROOT}}/myapp/bin
+          cd server
+          cp bin/database.db* ${{env.DOTNET_ROOT}}/myapp/bin
 
       - name: dotnet publish
         run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
