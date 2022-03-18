@@ -2,7 +2,7 @@
 
 Serve a Web API and a Blazor project from the same ASP.NET Core project.
 
-## Try it out
+## Try it out - publish
 
 Using bash / zsh:
 
