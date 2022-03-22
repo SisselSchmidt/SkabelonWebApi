@@ -35,10 +35,10 @@ Console.WriteLine($"ContentRoot Path: {builder.Environment.ContentRootPath}");
 Console.WriteLine($"WebRootPath: {builder.Environment.WebRootPath}");
 
 // Tilføj DbContext factory som service.
-// Det gør at man kan få TodoContext ind via dependecy injection - fx 
-// i DataService (smart!)
+// Selve DataBase Connection String skal angives enten i "appsettings.json"
+// eller som environment variable med navnet "dbcs".
 builder.Services.AddDbContext<TodoContext>(options =>
-    options.UseSqlite(builder.Configuration.GetConnectionString("TodoContextSQLite")));
+    options.UseSqlServer(builder.Configuration["dbcs"]));
 
 // Kan vise flotte fejlbeskeder i browseren hvis der kommer fejl fra databasen
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
@@ -130,6 +130,5 @@ app.Run();
 
 // Records til input data (svarende til input JSON)
 record PostTaskData(string text, bool done, int userId);
-
 record PutTaskData(string text, bool done);
 record UserData(string name);

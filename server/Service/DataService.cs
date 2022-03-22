@@ -9,7 +9,6 @@ namespace Service;
 public class DataService
 {
     private TodoContext db { get; }
-
     public DataService(TodoContext db) {
         this.db = db;
     }
