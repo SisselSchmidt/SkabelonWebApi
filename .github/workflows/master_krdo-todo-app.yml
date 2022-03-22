@@ -67,5 +67,5 @@ jobs:
         with:
           app-name: 'krdo-todo-app'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_CAE8313A832C41A29B592AB00DEE15EE }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE }}
           package: .
